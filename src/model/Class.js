@@ -8,7 +8,7 @@ const classSchema = new Schema(
     courses: [{ type: Schema.ObjectId, ref: 'Course' }],
   },
   {
-    timeseries: true,
+    timestamps: true,
     id: true,
   }
 );

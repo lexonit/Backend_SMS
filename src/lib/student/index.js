@@ -18,7 +18,7 @@ const createStudentService = async ({
   gender,
   courses,
 }) => {
-  if ((!name || !user_id || !class_id || !class_roll || !gender, !birth)) {
+  if ((!name || !user_id || !class_id || !class_roll || !gender || !birth)) {
     const error = new Error('Invalid Paramiters!');
     error.status = 401;
     throw error;
@@ -85,11 +85,11 @@ const removeStudentService = async ({ id }) => {
 };
 
 const studentCountService = ({ search }) => {
-  const fileter = {
+  const filter = {
     name: { $regex: search, $options: 'i' },
   };
 
-  return Student.count(fileter);
+  return Student.count(filter);
 };
 
 const findSingleStudentService = async ({ id }) => {

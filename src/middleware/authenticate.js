@@ -27,7 +27,7 @@ const authenticate = async (req, _res, next) => {
       return next(authenticationError('User not found'));
     }
 
-    if (user.status !== 'approved') {
+    if (user.status !== 'approved' && !['admin'].includes(user.role)) {
       return next(authenticationError(`Your account status is ${user.status}`));
     }
 
