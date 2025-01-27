@@ -1,4 +1,4 @@
-const { updateParentService } = require('../../../lib/parent');
+const { updateParentService } = require('../../../../lib/parent');
 
 const updateParent = async (req, res, next) => {
   try {

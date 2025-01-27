@@ -1,4 +1,4 @@
-const { removeParentService } = require('../../../lib/parent');
+const { removeParentService } = require('../../../../lib/parent');
 
 const removeParent = async (req, res, next) => {
   try {

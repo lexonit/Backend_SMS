@@ -1,6 +1,6 @@
-const { updateParentPatchService } = require('../../../lib/parent');
+const { updateParentPatchService } = require('../../../../lib/parent');
 
-const updateParentPatch = async (req, res, next) => {
+const updateParentPatch  = async (req, res, next) => {
     try {
         const { id } = req.params;
         const updatedParent = await updateParentPatchService(id, req.body);
@@ -15,4 +15,4 @@ const updateParentPatch = async (req, res, next) => {
     }
 };
 
-module.exports = updateParentPatch;
+module.exports = updateParentPatch ;

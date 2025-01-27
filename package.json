@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "controllers": "^0.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -20,6 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.8.4",
     "morgan": "^1.10.0",
+    "punycode": "^2.3.1",
     "sms-api": "file:",
     "swagger-ui-express": "^5.0.1",
     "yamljs": "^0.3.0"

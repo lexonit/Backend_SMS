@@ -1,3 +1,4 @@
+const express = require('express');
 const router = require('express').Router();
 const { attendanceControllers } = require('../api/v1/attendance');
 const { controllers: authController } = require('../api/v1/auth');
@@ -7,6 +8,9 @@ const { gradeControllers } = require('../api/v1/grade');
 const { studentControllers } = require('../api/v1/student');
 const { teacherControllers } = require('../api/v1/teacher');
 const { userControllers } = require('../api/v1/user');
+const { parentControllers } = require('../api/v1/parent');
+
+
 
 const authenticate = require('../middleware/authenticate');
 const authorize = require('../middleware/authorize');
@@ -77,6 +81,20 @@ router
     teacherControllers.updateTeacherPatch
   )
   .delete(authenticate, authorize(['admin']), teacherControllers.removeTeacher);
+
+
+// Parent Routes
+router
+  .route('/api/v1/parents')
+  .get(authenticate, authorize(['admin', 'teacher']), parentControllers.findAllParent)
+  .post(authenticate, authorize(['admin']), parentControllers.createParent);
+
+router
+  .route('/api/v1/parents/:id')
+  .get(authenticate, authorize(['admin', 'teacher', 'parent']), parentControllers.findSingleParent)
+  .put(authenticate, authorize(['admin']), parentControllers.updateParent)
+  .patch(authenticate, authorize(['admin', 'parent']), parentControllers.updateParentPatch)
+  .delete(authenticate, authorize(['admin']), parentControllers.removeParent);
 
 // Class Routes
 router
